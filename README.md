@@ -24,8 +24,8 @@ No need for a start script; just used an endpoint to achieve the exact same thin
 I haven't released this on Docker Hub yet. 
 
 ```
-docker build . -t mc_server:latest
-docker run --name my_mc_server -p 25565:25565/tcp mc_server:latest
+docker build . -t mc_spigot:latest
+docker run --name my_mc_server -p 25565:25565/tcp mc_spigot:latest
 ## If on RH
 #firewall-cmd --zone=public --permanent --add-port=25565/tcp
 #firewall-cmd --reload
