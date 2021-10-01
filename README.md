@@ -1,5 +1,7 @@
 # Dockerized Minecraft
 
+Status: Untested, unbuilt
+
 Spins up a simple Minecraft server for you and your buddies.
 
 ## Infos
