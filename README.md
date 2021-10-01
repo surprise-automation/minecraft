@@ -1,12 +1,12 @@
-# Dockerized Minecraft
+# Dockerized Spigot Minecraft
 
 Status: Untested, unbuilt
 
-Spins up a simple Minecraft server for you and your buddies.
+Builds the spigot.mc jar for you and spins up a minecraft server with it.
 
 ## Infos
 
-CentOS based container. Builds OpenJDK-16.0.2 from source, creates and configures the MC volume in Docker and pulls the server jar down.
+CentOS based container. Builds OpenJDK-16.0.2 from source, pulls down BuildTools and builds spigot.mc for you.
 
 No need for a start script; just used an endpoint to achieve the exact same thing.
 
