@@ -30,7 +30,6 @@ RUN update-alternatives --set java /usr/lib/jvm/jdk-16.0.2/bin/java
 RUN update-alternatives --set javac /usr/lib/jvm/jdk-16.0.2/bin/javac
 RUN wget -o /jar/BuildTools.jar ${MC_SPIGOT_DL_URL}
 RUN cd /jar/
-RUN git config --global --unset core.autocrlf
 RUN java -jar BuildTools.jar --rev 1.17.1
 RUN groupadd -g ${MCGID} mc
 RUN adduser -s /bin/bash -u ${MCUID} -g ${MCGID} -d /home/mc mc
