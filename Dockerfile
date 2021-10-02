@@ -32,4 +32,4 @@ RUN adduser -s /bin/bash -u ${MCUID} -g ${MCGID} -d /home/mc mc
 RUN chown -R mc:mc /data/
 
 WORKDIR /data/
-ENTRYPOINT java -Xms${MX_MIN_RAM} -Xmx${MC_MAX_RAM} -XX:+UseG1GC -jar /jar/spigot-1.17.1.jar nogui
+ENTRYPOINT echo 'eula=true' >> /data/eula.txt && java -Xms${MC_MIN_RAM} -Xmx${MC_MAX_RAM} -XX:+UseG1GC -jar /jar/spigot-1.17.1.jar nogui
