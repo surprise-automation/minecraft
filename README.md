@@ -2,6 +2,12 @@
 
 Spins up a simple Minecraft server for you and your buddies.
 
+## Disclaimer
+
+Honestly, this isn't *as* good as [ITZG](https://github.com/itzg/docker-minecraft-server). This project has over 100 contributors and their scripting achieves so much more than what I have done here.
+
+The only reason this project exists is to demonstrate the absolute core basics for those of us who like to run our own custom containers.
+
 ## Infos
 
 CentOS based container. Builds OpenJDK-16.0.2 from source, creates and configures the MC volume in Docker and pulls the server jar down.
