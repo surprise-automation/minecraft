@@ -1,6 +1,6 @@
 # Dockerized Spigot Minecraft
 
-Status: Untested, unbuilt
+Status: Wont run but builds
 
 Builds the spigot.mc jar for you and spins up a minecraft server with it.
 

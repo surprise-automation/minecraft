@@ -16,10 +16,8 @@ RUN yum -y update
 RUN yum -y install git wget
 RUN yum clean all
 RUN mkdir /jar/
-RUN wget ${MC_JAVA_DL_URL}
-RUN tar xvfs openjdk-16.0.2_linux-x64_bin.tar.gz
 RUN mkdir -p /usr/lib/jvm
-RUN rsync -av jdk-16.0.2/ /usr/lib/jvm/jdk-16.0.2/
+RUN mkdir -p /tmp/java       && cd /tmp/java       && wget ${MC_JAVA_DL_URL}   && tar xvfs openjdk-16.0.2_linux-x64_bin.tar.gz   && rsync -av /tmp/java/jdk-16.0.2/ /usr/lib/jvm/jdk-16.0.2/
 RUN PATH=$PATH:/usr/lib/jvm/jdk-16.0.2/bin
 RUN JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
 RUN echo "PATH=${PATH}" >> /etc/environment
@@ -28,9 +26,7 @@ RUN update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-16.0.
 RUN update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk-16.0.2/bin/javac" 0
 RUN update-alternatives --set java /usr/lib/jvm/jdk-16.0.2/bin/java
 RUN update-alternatives --set javac /usr/lib/jvm/jdk-16.0.2/bin/javac
-RUN wget -o /jar/BuildTools.jar ${MC_SPIGOT_DL_URL}
-RUN cd /jar/
-RUN java -jar BuildTools.jar --rev 1.17.1
+RUN mkdir -p /tmp/BuildTools && cd /tmp/BuildTools && wget ${MC_SPIGOT_DL_URL} && java -jar BuildTools.jar --rev 1.17.1         && mv spigot-1.17.1.jar /jar/
 RUN groupadd -g ${MCGID} mc
 RUN adduser -s /bin/bash -u ${MCUID} -g ${MCGID} -d /home/mc mc
 RUN chown -R mc:mc /data/
