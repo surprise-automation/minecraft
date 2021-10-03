@@ -1,4 +1,4 @@
-# Dockerized Spigot Minecraft
+# Dockerized Paper Minecraft
 
 Status: Builds & Runs
 
