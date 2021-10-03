@@ -26,10 +26,10 @@ RUN update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-16.0.
 RUN update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk-16.0.2/bin/javac" 0
 RUN update-alternatives --set java /usr/lib/jvm/jdk-16.0.2/bin/java
 RUN update-alternatives --set javac /usr/lib/jvm/jdk-16.0.2/bin/javac
-RUN mkdir -p /tmp/BuildTools && cd /tmp/BuildTools && wget ${MC_SPIGOT_DL_URL} && java -jar BuildTools.jar --rev 1.17.1         && mv spigot-1.17.1.jar /jar/
+RUN wget -o /jar/paper.jar https://papermc.io/api/v2/projects/paper/versions/1.17.1/builds/300/downloads/paper-1.17.1-300.jar
 RUN groupadd -g ${MCGID} mc
 RUN adduser -s /bin/bash -u ${MCUID} -g ${MCGID} -d /home/mc mc
 RUN chown -R mc:mc /data/
 
 WORKDIR /data/
-ENTRYPOINT echo 'eula=true' >> /data/eula.txt && java -Xms${MC_MIN_RAM} -Xmx${MC_MAX_RAM} -XX:+UseG1GC -jar /jar/spigot-1.17.1.jar nogui
+ENTRYPOINT echo 'eula=true' >> /data/eula.txt && java -Xms${MC_MIN_RAM} -Xmx${MC_MAX_RAM} -XX:+UseG1GC -jar /jar/paper-1.17.1-300.jar nogui
