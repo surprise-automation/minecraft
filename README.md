@@ -2,11 +2,11 @@
 
 Status: Builds & Runs
 
-Builds the spigot.mc jar for you and spins up a minecraft server with it.
+Pulls paper and runs it, essentially. 
 
 ## Infos
 
-CentOS based container. Builds OpenJDK-16.0.2 from source, pulls down BuildTools and builds spigot.mc for you.
+CentOS based container. Builds OpenJDK-16.0.2 from source, pulls down paper and runs it.
 
 No need for a start script; just used an endpoint to achieve the exact same thing.
 
@@ -26,8 +26,8 @@ No need for a start script; just used an endpoint to achieve the exact same thin
 I haven't released this on Docker Hub yet. 
 
 ```
-docker build . -t mc_spigot:latest
-docker run --name my_mc_server -p 25565:25565/tcp mc_spigot:latest
+docker build . -t surprise-automation/minecraft:1.17.1-paper
+docker run --name my_mc_server -p 25565:25565/tcp surprise-automation/minecraft:1.17.1-paper
 ## If on RH
 #firewall-cmd --zone=public --permanent --add-port=25565/tcp
 #firewall-cmd --reload
