@@ -15,11 +15,13 @@ spec:
   ports:
     - name: game-port
       protocol: TCP
-      port: 30065
+      port: 25565
+      nodePort: 30065
       targetPort: 25565
     - name: rcon-port
       protocol: TCP
-      port: 30075
+      port: 25575
+      nodePort: 30075
       targetPort: 25575
   selector:
     app: minecraft
